@@ -85,6 +85,7 @@ void game(int originalNumber){
             break;
         else if(i == cons::NumberRounds){
             std::cout<<"sorry, you lost.\n";
+            std::cout<<"the actual number was "<<originalNumber<<std::endl;
         }
 
     }
