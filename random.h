@@ -19,7 +19,7 @@ namespace randnum
     inline std::mt19937 mt{makeSeeds()};
 
     inline int generateRandomNumber(){
-        std::uniform_int_distribution uid{cons::MinNumber, cons::MaxNumber};
+        std::uniform_int_distribution<> uid{cons::MinNumber, cons::MaxNumber};
         return uid(mt);
     }
 
