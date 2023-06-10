@@ -51,9 +51,60 @@ bool check(int number, int originalNumber){
 
 }
 
-bool isContinue(){}
+bool isContinue(){
+    
+    char value{};
+
+    while (true){
+        std::cout<<"do you want to continue(Y/n)?"<<std::endl;
+        std::cin>>value;
+
+        switch (value)
+        {
+        case 'Y':
+            return true;
+        case 'n':
+            return false;
+        default:
+            deleteLine();
+        }
+    }
+}
+
+void game(int originalNumber){
+
+    int currNumber{};
+    bool mode{};
+
+    for (int i = 1; i<=cons::NumberRounds; ++i){
+
+        currNumber = getNumber();
+        mode = check(currNumber, originalNumber);
+
+        if (mode)
+            break;
+        else if(i == cons::NumberRounds){
+            std::cout<<"sorry, you lost.\n";
+        }
+
+    }
+
+}
 
 int main(){
+
+    int currRandomNumber{};
+
+    while(true){
+        currRandomNumber=randnum::generateRandomNumber();
+        game(currRandomNumber);
+
+        if(!isContinue()){
+            std::cout<<"thank you for choosing us.\n";
+            break;
+        }
+    }
+
 
     return 0;
 }
